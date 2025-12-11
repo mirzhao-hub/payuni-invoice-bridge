@@ -1,4 +1,4 @@
-=// index.js - 超精簡 PayUNi Debug 版本
+// index.js - 超精簡 PayUNi Debug 版本
 // 先確認 Notify 有沒有打進來，再來談解密＆開發票
 
 const express = require("express");
