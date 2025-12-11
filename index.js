@@ -47,16 +47,12 @@ app.get("/", (req, res) => {
 // ===================================================
 // OPay / 歐付寶 Notify 測試用（獨立路由）
 // ===================================================
-app.all("/opay/notify", (req, res) => {
-  console.log("📩 收到 OPay Notify 測試:", {
-    method: req.method,
-    query: req.query,
-    body: req.body,
-    headers: req.headers,
-  });
+app.post('/opay/notify', express.urlencoded({ extended: false }), (req, res) => {
+  console.log("📩 收到 OPay Notify:", req.body);
 
-  // OPay 規定背景通知成功要回傳純文字 1|OK
-  res.send("1|OK");
+  // 設定回傳為純文字
+  res.set('Content-Type', 'text/plain');
+  res.send('1|OK');
 });
 
 // ===================================================
