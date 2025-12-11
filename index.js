@@ -56,6 +56,21 @@ app.all("/payuni/notify", async (req, res) => {
     body: req.body,
   });
 
+// O'Pay /歐付寶 付款結果通知（只用來測試是否收得到）
+app.post('/opay/notify', (req, res) => {
+  console.log('📩 收到 OPay Notify:', {
+    method: req.method,
+    query: req.query,
+    body: req.body,
+    headers: req.headers,
+  });
+
+  // O'Pay 規定：背景通知處理成功要回傳純文字 1|OK
+  // 沒回這個它會一直重送通知 :contentReference[oaicite:0]{index=0}
+  res.send('1|OK');
+});
+
+
   // 正式 Notify 會是 POST，我們先把 GET 當成「測試用 ping」
   if (req.method !== "POST") {
     return res.send("OK (non-POST)");
