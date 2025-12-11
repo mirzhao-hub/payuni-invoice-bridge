@@ -1,0 +1,15 @@
+{
+  "name": "payuni-invoice-bridge",
+  "version": "1.0.0",
+  "description": "Bridge PayUNi payment notify to your own invoice logic (e.g. ECPay)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
